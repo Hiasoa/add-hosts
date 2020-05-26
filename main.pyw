@@ -5,15 +5,13 @@ except:
     error
 
 
-print('reset : type "R"\nadd : type "A"')
+print('reset : type "reset"\nadd : type "add"\nlist : type "list"')
 mode = input('mode:')
 
+hosts = 'C:\\Windows\\System32\\drivers\\etc\\hosts'
 
-
-if mode == 'A':
+if mode == 'add':
     os.chdir('./')
-
-    hosts = 'C:\\Windows\\System32\\drivers\\etc\\hosts'
 
     shutil.copyfile(hosts, 'hosts')
 
@@ -35,6 +33,12 @@ if mode == 'A':
     print('success!')
     time.sleep(3)
     sys.exit('')
-if mode == 'R':
-    os.system('del C:\\Windows\\System32\\drivers\\etc\\hosts')
+if mode == 'reset':
     os.system('echo.> C:\\Windows\\System32\\drivers\\etc\\hosts')
+    print('success!')
+    time.sleep(3)
+    os.exit('')
+if mode == 'list':
+    print(open(hosts).readline())
+    time.sleep(3)
+    os.exit('')
